@@ -63,10 +63,10 @@ int main(int argc, char *argv[]) {
     // Вывод результатов
     printf("Максимальные значения в столбцах элементов матрицы 𝐴:\n");
     for (int j = 0; j < M; j++) {
-        //printf("%d\n", max[j]);
+        printf("%d\n", max[j]);
     }
     printf("\n");
-    //double time = (end_time - start_time);
+    double time = (end_time - start_time);
     printf("Время выполнения программы: %ld секунд\n", (end_time - start_time));
 
     return 0;
