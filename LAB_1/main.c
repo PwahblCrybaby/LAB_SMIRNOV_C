@@ -25,7 +25,6 @@ void *find_max(void *arg) {
             }
         }
     }
-    //printf("End %d\n", args.col_end);
     return NULL;
 }
 
@@ -37,6 +36,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
+
     // Поиск максимальных значений в столбцах элементов матрицы 𝐴
     int max[M];
     int num_threads = atoi(argv[1]);
@@ -47,7 +47,6 @@ int main(int argc, char *argv[]) {
     for (int thread_id = 0; thread_id < num_threads; ++thread_id) {
         args[thread_id].col_begin = M / num_threads * thread_id;
         args[thread_id].col_end = M / num_threads * (thread_id + 1);
-        //printf("%d: %d - %d\n", thread_id, args[thread_id].col_begin, args[thread_id].col_end);
         args[thread_id].max = max;
     }
     args[num_threads - 1].col_end = M;
@@ -66,7 +65,6 @@ int main(int argc, char *argv[]) {
         printf("%d\n", max[j]);
     }
     printf("\n");
-    double time = (end_time - start_time);
     printf("Время выполнения программы: %ld секунд\n", (end_time - start_time));
 
     return 0;
